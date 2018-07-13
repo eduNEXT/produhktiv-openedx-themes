@@ -30,7 +30,7 @@
           </nav>
 
           ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-          <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
+          <p class="copyright"> © All rights reserved.</p>
 
           <nav class="navbar legal-nav navbar-toggleable-sm navbar-light" aria-label="${_('Legal')}">
             <ul class="navbar-nav">
@@ -76,11 +76,12 @@
       <div class="colophon">
         <nav class="nav-colophon" aria-label="${_('About')}">
           <ol>
-              % for item_num, link in enumerate(footer['navigation_links'], start=1):
-              <li class="nav-colophon-0${item_num}">
-                <a id="${link['name']}" href="${link['url']}">${link['title']}</a>
+              <li class="nav-colophon-01">
+                <a id="about-link" href="/about">About us</a>
               </li>
-              % endfor
+              <li class="nav-colophon-02">
+                <a id="contact-link" href="/contact">Contact us</a>
+              </li>
           </ol>
         </nav>
 
@@ -104,7 +105,7 @@
         </div>
 
         ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-        <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
+        <p class="copyright">© All rights reserved.</p>
 
         <nav class="nav-legal" aria-label="${_('Legal')}">
           <ul>
@@ -130,7 +131,25 @@
         <a href="${facebook_org_link}" target="_blank">
           <span class="icon fa fa-facebook" aria-hidden="true"></span>
         </a>
-      </section>
+        </section>
+
+        <div class="footer-icons">
+          <div class="icon-opendx">
+            <p>
+                <a href="${footer['openedx_link']['url']}">
+                  <img src="${static.url('images/edx-openedx.png')}" alt="${footer['openedx_link']['title']}" width="120" />
+                </a>
+              </p>
+          </div>
+          <div class="icon-edunext">
+            <p>
+                <a href="https://www.edunext.co/">
+                  <img src="${static.url('images/logo-edunext.png')}" alt="eduNEXT - World call open edX services provider | www.edunext.co" width="120" />
+                </a>
+              </p>
+          </div>
+              
+        </div>
       </div>
       % endif
     </footer>
