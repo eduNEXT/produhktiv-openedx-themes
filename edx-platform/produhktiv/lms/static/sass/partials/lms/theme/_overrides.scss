@@ -455,3 +455,42 @@ body.view-in-course.view-instructordash .window-wrap {
 		height: 150px;
 	}
 }
+
+// Contact form
+.contact-form {
+	.contact-form-field {
+		display: flex;
+
+		label {
+			font-style: normal;
+			margin-top: 5px;
+			font-weight: bold;
+		}
+
+		input,
+		textarea {
+			width: 100%;
+			font-style: normal;
+		}
+	}
+
+	.contact-form-submit {
+		margin-top: 20px;
+		background-color: #a32b26;
+		color: #fff;
+		border: 1px solid #fff;
+		font-weight: 400;
+		box-shadow: none;
+		background-image: none;
+		text-shadow: none;
+		letter-spacing: normal;
+		transition: all 0.1s linear 0s;
+
+		&:hover {
+			background-color: #fff !important;
+			color: #a32b26;
+			border-color: #a32b26;
+			background-image: none !important;
+		}
+	}
+} 
