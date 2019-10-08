@@ -26,12 +26,7 @@
   <div class="colophon">
     <nav class="nav-colophon" aria-label="${_('About')}">
       <ol>
-        <li class="nav-colophon-01">
-          <a id="about-link" href="/about">About us</a>
-        </li>
-        <li class="nav-colophon-02">
-          <a id="contact-link" href="/contact">Contact us</a>
-        </li>
+     
       </ol>
     </nav>
 
@@ -49,23 +44,33 @@
           ## can be included in the footer on other sites
           ## (e.g. a blog or marketing front-end) to provide a consistent
           ## user experience.  See the branding app for details.
-          <img alt="organization logo" src="${static.url('images/logo.png')}">
+          <img alt="organization logo" src="${static.url('images/microsoft-white.png')}">
         </a>
       </p>
     </div>
 
-    ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-    <p class="copyright">© All rights reserved.</p>
-
     <nav class="nav-legal" aria-label="${_('Legal')}">
       <ul>
-        % for item_num, link in enumerate(footer['legal_links'], start=1):
-        <li class="nav-legal-0${item_num}">
-          <a href="${link['url']}">${link['title']}</a>
+           <li class="nav-colophon-01">
+          <a id="about-link" href="http://go.microsoft.com/fwlink/?LinkId=521839">Privacy & Cookies</a>
         </li>
-        % endfor
+        <li class="nav-colophon-02">
+          <a id="contact-link" href="http://go.microsoft.com/fwlink/?LinkId=518021">Data Protection Notice</a>
+        </li>
+        <li class="nav-colophon-02">
+          <a id="contact-link" href="https://oxa.microsoft.com/tos">Terms of Use</a>
+        </li>
+        <li class="nav-colophon-02">
+          <a id="contact-link" href="http://produhktiv.com/index.php/code-of-conduct/">Code of Conduct</a>
+        </li>
       </ul>
     </nav>
+
+    ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
+    <p class="copyright">© 2019 Microsoft.  All rights reserved</p>
+    <p class="copyright">This site is hosted for Microsoft by pro•duhk•tiv llc.</p>
+
+    
   </div>
 
   ## Please leave this link and use one of the logos provided

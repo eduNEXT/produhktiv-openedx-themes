@@ -1,4 +1,4 @@
-$main-color: #a32b26;
+$main-color: #0790f6;
 
   /***** Navigation bar ******/
 
@@ -13,6 +13,10 @@ $main-color: #a32b26;
   		max-height: 50px;
   	}
 
+  }
+
+  .window-wrap .global-header .header-logo a .logo {
+  	height: 70px;
   }
 
   .window-wrap .header-global {
@@ -36,10 +40,10 @@ $main-color: #a32b26;
 
  	.title .course-search .search-button {
  		background: $main-color;
- 		border: 2px solid #7a201c;
+ 		border: 2px solid #0079f4;
 
  		&:hover {
- 			background: #cc3630;
+ 			background: #2bace6;
  		}
  	}
  }
@@ -59,12 +63,13 @@ $main-color: #a32b26;
  			color: #fff;
  		}
 
- 		.nav-legal {
+ 		.nav-colophon {
  			display: none;
  		}
 
- 		.colophon .nav-colophon li a {
+ 		.colophon .nav-legal li a {
  			color: #fff;
+ 			font-size: 1rem;
  		}
 
  		.social-feed {
@@ -103,12 +108,13 @@ $main-color: #a32b26;
  			color: #fff;
  		}
 
- 		.nav-legal {
+ 		.nav-colophon {
  			display: none;
  		}
 
- 		.colophon .nav-colophon li a {
+ 		.colophon .nav-legal li a {
  			color: #fff;
+ 			font-size: 1rem;
  		}
 
  		.social-feed {
@@ -139,21 +145,21 @@ $main-color: #a32b26;
 /***** Dashboardh ****/
 .dashboard .search-bar .search-button {
 	background: $main-color;
-	border: 2px solid #7a201c;
+	border: 2px solid #0079f4;
 
 	&:hover{
-		background: #cc3630;
-		border: 2px solid #7a201c;
+		background: #2bace6;
+		border: 2px solid #0079f4;
 	}
 }
 
  /**** COurses ***/
  .window-wrap .find-courses .discovery-submit{
  	background: $main-color;
- 	border: 2px solid #7a201c;
+ 	border: 2px solid #0079f4;
 
  	&:hover{
- 		background: #cc3630;
+ 		background: #2bace6;
  	}
  }
 
@@ -476,7 +482,7 @@ body.view-in-course.view-instructordash .window-wrap {
 
 	.contact-form-submit {
 		margin-top: 20px;
-		background-color: #a32b26;
+		background-color: $main-color;
 		color: #fff;
 		border: 1px solid #fff;
 		font-weight: 400;
@@ -488,8 +494,8 @@ body.view-in-course.view-instructordash .window-wrap {
 
 		&:hover {
 			background-color: #fff !important;
-			color: #a32b26;
-			border-color: #a32b26;
+			color: $main-color;
+			border-color: $main-color;
 			background-image: none !important;
 		}
 	}

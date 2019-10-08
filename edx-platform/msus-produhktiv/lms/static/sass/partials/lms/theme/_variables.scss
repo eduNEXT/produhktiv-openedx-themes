@@ -1,4 +1,4 @@
-$main-color: #a32b26;
+$main-color: #0790f6;
 $main-color-darker: darken( $main-color, 10%);
 $main-color-lighter: lighten( $main-color, 10% );
 
@@ -10,6 +10,6 @@ $action-primary-focused-bg: $main-color-lighter;
 $action-primary-active-bg: $main-color;
 $header-border-color: $main-color;
 
-$link-color: #a32b26;
+$link-color: #0790f6;
 
 @import 'edx-bootstrap/sass/open-edx/theme';

@@ -62,6 +62,8 @@
   }
 
   .nav-legal {
+    margin: 0px 0 20px;
+    
     ul {
       list-style: none;
       margin: 0;
@@ -165,6 +167,27 @@
 //-----------------
 // Responsive Styling
 //-----------------
+@media only screen and (max-width: 991px) {
+  .window-wrap .global-header .main-header {
+    height: 85px;
+
+    .hamburger-menu {
+      top: 36px;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px){
+  .window-wrap .global-header .nav-links {
+    .main {
+      margin: 37px 0 0 20px;
+    }
+    .secondary {
+      margin: 26px 40px 0 0;
+    }
+  } 
+}
+
 @media only screen and (max-width: 768px) {
 
   //nav sequence
