@@ -284,6 +284,10 @@
   }
 }
 
-.account-settings-sections .section:nth-child(3){
+.account-settings-sections .section:nth-child(3),
+.account-settings-sections .section:nth-child(4),
+.account-settings-sections .u-field-pref-lang,
+.account-settings-sections .u-field-country,
+.account-settings-sections .u-field-time_zone {
   display:none;
 }
