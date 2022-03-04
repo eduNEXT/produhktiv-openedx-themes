@@ -39,7 +39,7 @@ $footer-back: #443f3f;
 /**** Banner ****/
 .window-wrap .home > header {
   background: $main-color;
-  background-size: cover;
+  background-size: 100% 100%;
 
   .title {
     background: #ffffffdb;
