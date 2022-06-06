@@ -5,14 +5,35 @@
   from django.conf import settings
   from django.utils.translation import ugettext as _
   from branding.api import get_footer
+  from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
   from openedx.core.djangoapps.lang_pref.api import footer_language_selector_is_enabled
 
 
   facebook_org_link = settings.PLATFORM_FACEBOOK_ACCOUNT
   twitter_org_link = settings.PLATFORM_TWITTER_ACCOUNT
 %>
-<% footer = get_footer(is_secure=is_secure) %>
 <%namespace name='static' file='static_content.html'/>
+<% 
+  footer_social_default = [
+    {
+      "legend": "Privacy & Cookies",
+      "url": "http://go.microsoft.com/fwlink/?LinkId=521839"
+    },
+    {
+      "legend": "Terms of Use",
+      "url": "https://oxa.microsoft.com/tos"
+    },
+    {
+      "legend": "Code of Conduct",
+      "url": "https://produhktiv.com/conduct/"
+    }
+  ]
+  footer_logo_default = static.url('images/microsoft-white.png')
+  footer = get_footer(is_secure=is_secure) 
+  footer_social = configuration_helpers.get_value('footer_social', footer_social_default)
+  footer_logo = configuration_helpers.get_value('footer_logo', footer_logo_default)
+
+%>
 
 <div class="wrapper wrapper-footer">
   <footer id="footer-openedx" class="grid-container"
@@ -44,24 +65,21 @@
           ## can be included in the footer on other sites
           ## (e.g. a blog or marketing front-end) to provide a consistent
           ## user experience.  See the branding app for details.
-          <img alt="organization logo" src="${static.url('images/microsoft-white.png')}">
+          <img alt="organization logo" src="${footer_logo}">
         </a>
       </p>
     </div>
-
+    % if footer_social:
     <nav class="nav-legal" aria-label="${_('Legal')}">
       <ul>
+        % for social in footer_social
         <li class="nav-colophon-01">
-          <a id="about-link" href="http://go.microsoft.com/fwlink/?LinkId=521839">Privacy & Cookies</a>
+          <a id="about-link" href="${social.get('url', '#')}">${social.get('legend', '')}</a>
         </li>
-        <li class="nav-colophon-02">
-          <a id="contact-link" href="https://oxa.microsoft.com/tos">Terms of Use</a>
-        </li>
-        <li class="nav-colophon-02">
-          <a id="contact-link" href="https://produhktiv.com/conduct/">Code of Conduct</a>
-        </li>
+        % endfor
       </ul>
     </nav>
+    % endif
 
     ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
     <p class="copyright">© 2021 Microsoft.  All rights reserved</p>
