@@ -12,7 +12,6 @@
   facebook_org_link = settings.PLATFORM_FACEBOOK_ACCOUNT
   twitter_org_link = settings.PLATFORM_TWITTER_ACCOUNT
 %>
-<%namespace name='static' file='static_content.html'/>
 <% 
   footer_social_default = [
     {
@@ -28,12 +27,11 @@
       "url": "https://produhktiv.com/conduct/"
     }
   ]
-  footer_logo_default = static.url('images/microsoft-white.png')
   footer = get_footer(is_secure=is_secure) 
-  footer_social = configuration_helpers.get_value('footer_social', footer_social_default)
-  footer_logo = configuration_helpers.get_value('footer_logo', footer_logo_default)
-
+  footer_social = configuration_helpers.get_value("footer_social", {}) or footer_social_default
 %>
+
+<%namespace name='static' file='static_content.html'/>
 
 <div class="wrapper wrapper-footer">
   <footer id="footer-openedx" class="grid-container"
@@ -65,16 +63,16 @@
           ## can be included in the footer on other sites
           ## (e.g. a blog or marketing front-end) to provide a consistent
           ## user experience.  See the branding app for details.
-          <img alt="organization logo" src="${footer_logo}">
+          <img alt="organization logo" src="${configuration_helpers.get_value("footer_logo", {} ) or static.url('images/microsoft-white.png')}">
         </a>
       </p>
     </div>
     % if footer_social:
     <nav class="nav-legal" aria-label="${_('Legal')}">
       <ul>
-        % for social in footer_social
+        % for social in footer_social:
         <li class="nav-colophon-01">
-          <a id="about-link" href="${social.get('url', '#')}">${social.get('legend', '')}</a>
+          <a id="about-link" href="${social.get('url', '#') | h}">${social.get('legend', '') | h}</a>
         </li>
         % endfor
       </ul>
