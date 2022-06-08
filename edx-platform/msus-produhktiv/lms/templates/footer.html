@@ -28,7 +28,7 @@
     }
   ]
   footer = get_footer(is_secure=is_secure) 
-  footer_social = configuration_helpers.get_value("footer_social", {}) or footer_social_default
+  footer_social = configuration_helpers.get_configuration_value("footer_social", {}) or footer_social_default
 %>
 
 <%namespace name='static' file='static_content.html'/>
