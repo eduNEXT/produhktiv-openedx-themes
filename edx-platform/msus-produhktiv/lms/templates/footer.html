@@ -27,6 +27,8 @@
       "url": "https://produhktiv.com/conduct/"
     }
   ]
+  footer_copyright_first_legend = configuration_helpers.get_configuration_value("footer_copyright_first_legend", {}) or "© 2021 Microsoft. All rights reserved"
+  footer_copyright_second_legend = configuration_helpers.get_configuration_value("footer_copyright_second_legend", {}) or " test This site is hosted for Microsoft by pro•duhk•tiv llc."
   footer = get_footer(is_secure=is_secure) 
   footer_social = configuration_helpers.get_configuration_value("footer_social", {}) or footer_social_default
 %>
@@ -80,8 +82,8 @@
     % endif
 
     ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-    <p class="copyright">© 2021 Microsoft.  All rights reserved</p>
-    <p class="copyright">This site is hosted for Microsoft by pro•duhk•tiv llc.</p>
+    <p class="copyright">${footer_copyright_first_legend}</p>
+    <p class="copyright">${footer_copyright_second_legend}</p>
 
     
   </div>
