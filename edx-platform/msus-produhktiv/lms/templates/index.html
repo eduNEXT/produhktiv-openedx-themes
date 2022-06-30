@@ -8,10 +8,17 @@ from django.urls import reverse
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
 from openedx.core.djangolib.markup import HTML, Text
 %>
+<%
+is_color = bool(re.match("^[#]", configuration_helpers.get_value("home_banner", {} ) or ""))
+%>
 
 <main id="main" aria-label="Content" tabindex="-1">
     <section class="home">
-      <header style="background-image: url(${configuration_helpers.get_value("home_banner", {} ) or static.url('images/banner.jpg')});">
+        % if is_color:
+        <header style="background-color: ${configuration_helpers.get_value("home_banner", {} )};">
+        % else:
+        <header style="background-image: url(${configuration_helpers.get_value("home_banner", {} ) or static.url('images/banner.jpg')});">
+        % endif
         <div class="outer-wrapper">
           <div class="title">
             <div class="heading-group">
