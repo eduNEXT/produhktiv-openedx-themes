@@ -1,21 +1,21 @@
 ## mako
 <%page expression_filter="h"/>
-
+<%!
+from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
+%>
 
 <!-- Block to put meta when file exports from main_django.html -->
 
-% if context.get('django_context', False):
- 	<meta name="viewport" content="width=device-width, initial-scale=1">
+<%
+ style_overrides_file_extra = configuration_helpers.get_value("css_overrides_file_extra", default=False )
+ style_overrides_inline_extra = configuration_helpers.get_value("css_overrides_inline_extra", default=False )
+%>
+% if style_overrides_file_extra:
+  <link rel="stylesheet" type="text/css" href="${static.url(style_overrides_file_extra)}" />
 % endif
-
-
-
-
-
-
-
-
-
-
-
-
+% if style_overrides_inline_extra:
+  <style type="text/css">${style_overrides_inline_extra | n}</style>
+% endif
+% if context.get('django_context', False):
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+% endif
